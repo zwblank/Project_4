@@ -21,6 +21,7 @@ The original dataset consisted of 2,226,382 rows of data with 12 columns.  This 
   * zip_code
   * house_size - squared footage
   * prev_sold_date - removed from dataset
+
 To reduce the size of the dataset, it was decided to remove the columns because [brokered by, street, prev_sold_date] they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed which included: Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii as well as any rows with null values.
 This reduced the dataset to 1,086,263 rows and 9 columns. 
   

@@ -8,7 +8,7 @@ The main question we ask of the data is what a home is worth based on its featur
 The main machine learning model we used was a random forest regressor. We also compared it to multivariate linear regression, and support vector regression. We also used techniques, such as a correlation matrix to pick out the most important features to use for the model.
 
 ## Data Cleanup and Processing:
-The data file consisted of 2,226,382 rows of data with we columns.  The files was too large to upload into github so the following were decided to streamline the data. The following is a list of the columns and whether the column was kept or not:
+The original dataset consisted of 2,226,382 rows of data with 12 columns.  This dataset was too large to upload into github so t decisions were made to streamline the file. The following is a list of the columns:
   *brokered by - removed from dataset
   *status - whether the house was "ready-to-build", "sold" or "for sale"
   *price

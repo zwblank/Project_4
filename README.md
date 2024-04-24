@@ -7,6 +7,24 @@ The main question we ask of the data is what a home is worth based on its featur
 
 The main machine learning model we used was a random forest regressor. We also compared it to multivariate linear regression, and support vector regression. We also used techniques, such as a correlation matrix to pick out the most important features to use for the model.
 
+## Data Cleanup and Processing:
+The data file consisted of 2,226,382 rows of data with we columns.  The files was too large to upload into github so the following were decided to streamline the data. The following is a list of the columns and whether the column was kept or not:
+  *brokered by - removed from dataset
+  *status - whether the house was "ready-to-build", "sold" or "for sale"
+  *price
+  *bed - number of bedrooms
+  *bath - number of bathrooms
+  *acre_lot - size of lot
+  *street - removed from dataset
+  *city
+  *state
+  *zip_code
+  *house_size - squared footage
+  *prev_sold_date - removed from dataset
+To reduce the size of the dataset, it was decided to remove the columns because [brokered by, street, prev_sold_date] they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed which included: Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii as well as any rows with null values.
+This reduced the dataset to 1,086,263 rows and 9 columns. 
+  
+
 ## Machine Learning Models:
 
 ## To Run:

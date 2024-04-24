@@ -9,18 +9,18 @@ The main machine learning model we used was a random forest regressor. We also c
 
 ## Data Cleanup and Processing:
 The original dataset consisted of 2,226,382 rows of data with 12 columns.  This dataset was too large to upload into github so t decisions were made to streamline the file. The following is a list of the columns:
-  *brokered by - removed from dataset
-  *status - whether the house was "ready-to-build", "sold" or "for sale"
-  *price
-  *bed - number of bedrooms
-  *bath - number of bathrooms
-  *acre_lot - size of lot
-  *street - removed from dataset
-  *city
-  *state
-  *zip_code
-  *house_size - squared footage
-  *prev_sold_date - removed from dataset
+  * brokered by - removed from dataset
+  * status - whether the house was "ready-to-build", "sold" or "for sale"
+  * price
+  * bed - number of bedrooms
+  * bath - number of bathrooms
+  * acre_lot - size of lot
+  * street - removed from dataset
+  * city
+  * state
+  * zip_code
+  * house_size - squared footage
+  * prev_sold_date - removed from dataset
 To reduce the size of the dataset, it was decided to remove the columns because [brokered by, street, prev_sold_date] they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed which included: Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii as well as any rows with null values.
 This reduced the dataset to 1,086,263 rows and 9 columns. 
   

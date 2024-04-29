@@ -29,7 +29,31 @@ A second dataset was created that included the prev_sold_date column that was us
 In the dataset, two views were created to be used in queries. 
 
 ## Postgresql
-The database includes 3 tables and 2 views.
+The realestate_db database contains 3 tables:
+* realtor_filtered - main table
+* usgeocode - table with latitude and longitude codes
+* stateregion - table with region and division listing
+  
+While importing data into the realtor_filtered table, several fields had to be altered. These fields were coming in as decimal instead of integer (bath, bed) and the zip_code had to be altered from decimal to VARCHAR and then formatted to take leading zeros. 
+
+Two views were made:
+* realtor_region_view - includes the main table with the region and division fields added.  This is the table to use eliminating the need to do joins each time.
+* realtor_region_extended_view = includes everything in the first view but added the latitude and longitude columns. This is basically for anyone needing the latitude and longitude for mapping purposes
+
+The file used for this operation is under creation of tables.sql
+
+Queries 
+Queries for validate that data was populated in each table and visable with the views are listed at the beginning of the queries file.
+Questions answere by the sample queries were: 
+* the maximum number of baths grouped by state - this actually show that the data need further cleaning
+* counts by region
+* counts by region and states
+* average cost per square foot(house_size) by region and status
+* cost per square foot with 6 or less beds and 5 and less baths by state
+* cost per square foot with 6 or less beds and 5 and less baths by region
+* cost per square foot with 6 or less beds and 5 and less baths by division
+
+This is located in the file Sample Queries.sql
 
 ## Machine Learning Models:
 

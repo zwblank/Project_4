@@ -28,6 +28,8 @@ This reduced the dataset to 1,086,263 rows and 9 columns.
 A second dataset was created that included the prev_sold_date column that was used for buildling the Postgresql database. This dataset had 1,353,433 rows.  
 In the dataset, two views were created to be used in queries. 
 
+Part of the data viewing and cleanup was performed using Pandas. This included reading the raw data zipped csv file.  The file is too large to upload to github and too large to open in Excel. Dataframes were made from subsets of the raw data.  SQLite was used to create a connection to a database.  The file also showed off skills learned in creating graphs using matplotlib
+
 ## Postgresql
 The realestate_db database contains 3 tables:
 * realtor_filtered - main table
@@ -46,8 +48,8 @@ Queries
 Queries for validate that data was populated in each table and visable with the views are listed at the beginning of the queries file.
 Questions answere by the sample queries were: 
 * the maximum number of baths grouped by state - this actually show that the data need further cleaning
-* counts by region
-* counts by region and states
+* property counts by region
+* property counts by region and states
 * average cost per square foot(house_size) by region and status
 * cost per square foot with 6 or less beds and 5 and less baths by state
 * cost per square foot with 6 or less beds and 5 and less baths by region

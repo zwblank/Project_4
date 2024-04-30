@@ -29,13 +29,13 @@ Order by MaxBeds DESC
 
 
 
---Counts by regions
+--Property counts by regions
 SELECT region, COUNT(region)AS RegionCount
 FROM realtor_region_view
 group by region
 
 
---Counts by regions and states
+--Property counts by regions and states
 SELECT region, state, COUNT(state) AS StateCount
 FROM realtor_region_extended_view
 group by region, state;
@@ -78,6 +78,7 @@ FROM realtor_region_view
 Where bath <4
 	and bed = 4
 GROUP BY state
+
 ORDER BY state
 
 --Cost per house_size with house with 6 or less beds and 5 or less baths by state
@@ -98,7 +99,7 @@ GROUP BY region
 ORDER BY region
 
 
---Cost per house_size with house with 6 or less beds and 5 or less baths by division
+--Cost per house_size with 6 or less beds and 5 or less baths by division
 
 Select division,sum(price)/sum(house_size) AS CostPerSQFT
 FROM realtor_region_view

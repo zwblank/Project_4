@@ -44,9 +44,9 @@ Two views were made:
 
 The file used for this operation is under creation of tables.sql
 
-Queries 
-Queries for validate that data was populated in each table and visable with the views are listed at the beginning of the queries file.
-Questions answere by the sample queries were: 
+##Queries 
+Queries created to validate that data was populated in each table and visable with the views are listed at the beginning of the queries file.
+Questions answered by the sample queries were: 
 * the maximum number of baths grouped by state - this actually show that the data need further cleaning
 * property counts by region
 * property counts by region and states

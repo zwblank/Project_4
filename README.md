@@ -30,7 +30,7 @@ In the dataset, two views were created to be used in queries.
 
 Part of the data viewing and cleanup was performed using Pandas. This included reading the raw data zipped csv file.  The file is too large to upload to github and too large to open in Excel. Dataframes were made from subsets of the raw data.  SQLite was used to create a connection to a database.  The file also showed off skills learned in creating graphs using matplotlib
 
-## Postgresql
+## Postgresql:
 The realestate_db database contains 3 tables:
 * realtor_filtered - main table
 * usgeocode - table with latitude and longitude codes
@@ -44,7 +44,7 @@ Two views were made:
 
 The file used for this operation is under creation of tables.sql
 
-##Queries 
+## Queries:
 Queries created to validate that data was populated in each table and visable with the views are listed at the beginning of the queries file.
 Questions answered by the sample queries were: 
 * the maximum number of baths grouped by state - this actually show that the data need further cleaning

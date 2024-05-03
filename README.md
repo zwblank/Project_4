@@ -30,6 +30,15 @@ Part of the data viewing and cleanup was performed using Pandas. This included r
 
 SQLite was used to create a connection for accessing the data to be used in machine language modeling.  
 
+## Exploratory Data Analysis:
+The purpose is to explore the data sets and find hidden patterns and relationships of the current real estate market. To view the full analysis and graphics, please follow this link: https://public.tableau.com/app/profile/zac.blankenship/viz/Project4-ExploratoryDataAnalysis/Project4-ExploratoryDataAnalysis?publish=yes
+
+* What states are in which regions of the US? - Provides a visual representation of the United States and how it is broken down into 4 distinctregions: The Midwest, South, Northeast, and West. The map also provides each states average acreage, number of baths, number of beds, house size, price, and price by sqft.
+* Which regions of the United States have the highest average price per sqft? The West region has the highest price per sqft which can indicate that region has the most desirable homes while the Midwest has the least.
+* What is the distribution of prices of the different states? Once again proving that the West region has the highest prices, seven of the top ten states with the highest home prices are found in the West (California being #1). The bottom ten states (or those with the cheapest home prices) are evenly split between the South and Midwest. Many factors, such as state economic conditions or geographic location, can be leading factors as to why home prices are much higher in some areas versus others.
+* What is the average number of bedrooms, number of baths, and average price per sqft for each region of the United States? Average price per sqft has the largest range of regional differences, indicating some regions are more desirable than others. The average number of beds is fairly similar in all regions implying a consisten demand for 3-4 bedrooms homes across the US regions. Similar to beds, baths are fairly similar across the board except for the South where there there are a few states with higher than average number of baths. It's possible this is due to that region placing more emphasis on private baths for bedrooms.
+* Does average price have a strong relationship to avearge number of baths, average number of bedrooms, or average house size? With all three dimensions, there does appear to be a relationship however it's a fairly weak one. The avearge r-squared value was around 0.2731 which implies these variables don't explain much when it comes to the house price. However, it's very possible that linear regression is not the best model to use given these circumstances. It's well known that house size, more bedrooms, and more bathrooms typically lead to a higher price on a house so this data should be taken cautiously.
+
 ## Postgresql:
 The realestate_db database contains 3 tables:
 * realtor_filtered - main table

@@ -58,6 +58,17 @@ Questions answered by the sample queries were:
 This is located in the file Sample Queries.sql
 
 ## Machine Learning Models:
+#### Random Forest Regression
+“A random forest is a meta estimator that fits a number of decision tree regressors on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting”(Sklearn.ensemble.randomforestregressor, n.d.).
+
+For our project, we trained a Random Forest Regression model to predict house prices based on the number of bedrooms, number of bathrooms, lot size, zip code, and house size. From several trials, we determined that ... estimators produced the best results for the dataset that was given to the model. It resulted in and R-squared value of ... and an Out-of-Bag score of ....
+
+#### Multivariate Linear Regression
+“Linear regression analysis is a set of statistical procedures designed to examine relationships between one or more independent variables (IV) and one dependent (i.e., outcome) variable (DV)”(Randolph & Myers, 2013).
+
+#### Support Vector Regression
+“Support Vector Machine (SVM) is a supervised machine learning algorithm used for… regression. The main objective of the SVM algorithm is to find the optimal hyperplane in an N-dimensional space that can separate the data points in different classes in the feature space”(Support Vector Machine (SVM) algorithm, 2023).
+
 
 ## To Run:
 

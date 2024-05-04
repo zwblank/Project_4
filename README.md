@@ -22,9 +22,9 @@ The original dataset consisted of 2,226,382 rows of data with 12 columns.  This 
   * house_size - squared footage
   * prev_sold_date - removed from dataset
 
-To reduce the size of the dataset, it was decided to remove the columns because [brokered by, street, prev_sold_date) they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed (Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii) as well as any rows with null values. This reduced the dataset to 1,086,263 rows and 9 columns. 
+To reduce the size of the dataset, it was decided to remove the columns:[brokered by, street, prev_sold_date], because they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed (Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii) as well as any rows with null values. This reduced the dataset to 1,360,347 rows and 10 columns. This eliminated all rows with the status of 'ready_to_build'.
 
-A second dataset was created that included the prev_sold_date column that was used for building the Postgresql database and used for Tableau. This dataset had 1,353,433 rows.  In the dataset, two views were created. 
+In the dataset, two views were created. 
 
 Part of the data viewing and cleanup was performed using Pandas. This included reading the raw data zipped csv file.  The file is too large to upload to github and too large to open in Excel. Dataframes were made from subsets of the raw data. 
 
@@ -40,6 +40,8 @@ The purpose is to explore the data sets and find hidden patterns and relationshi
 * Does average price have a strong relationship to avearge number of baths, average number of bedrooms, or average house size? With all three dimensions, there does appear to be a relationship however it's a fairly weak one. The avearge r-squared value was around 0.2731 which implies these variables don't explain much when it comes to the house price. However, it's very possible that linear regression is not the best model to use given these circumstances. It's well known that house size, more bedrooms, and more bathrooms typically lead to a higher price on a house so this data should be taken cautiously.
 
 ## Postgresql:
+Due to structure of the data, Postgresql was the choice in creating a database.
+
 The realestate_db database contains 3 tables:
 * realtor_filtered - main table
 * usgeocode - table with latitude and longitude codes

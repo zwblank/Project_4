@@ -22,9 +22,9 @@ The original dataset consisted of 2,226,382 rows of data with 12 columns.  This 
   * house_size - squared footage
   * prev_sold_date - removed from dataset
 
-To reduce the size of the dataset, it was decided to remove the columns because [brokered by, street, prev_sold_date) they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed (Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii) as well as any rows with null values. This reduced the dataset to 1,086,263 rows and 9 columns. 
+To reduce the size of the dataset, it was decided to remove the columns:[brokered by, street, prev_sold_date], because they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed (Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii) as well as any rows with null values. This reduced the dataset to 1,360,347 rows and 10 columns. This eliminated all rows with the status of 'ready_to_build'.
 
-A second dataset was created that included the prev_sold_date column that was used for building the Postgresql database and used for Tableau. This dataset had 1,353,433 rows.  In the dataset, two views were created. 
+In the dataset, two views were created. 
 
 Part of the data viewing and cleanup was performed using Pandas. This included reading the raw data zipped csv file.  The file is too large to upload to github and too large to open in Excel. Dataframes were made from subsets of the raw data. 
 
@@ -40,6 +40,8 @@ The purpose is to explore the data sets and find hidden patterns and relationshi
 * Does average price have a strong relationship to avearge number of baths, average number of bedrooms, or average house size? With all three dimensions, there does appear to be a relationship however it's a fairly weak one. The avearge r-squared value was around 0.2731 which implies these variables don't explain much when it comes to the house price. However, it's very possible that linear regression is not the best model to use given these circumstances. It's well known that house size, more bedrooms, and more bathrooms typically lead to a higher price on a house so this data should be taken cautiously.
 
 ## Postgresql:
+Due to structure of the data, Postgresql was the choice in creating a database.
+
 The realestate_db database contains 3 tables:
 * realtor_filtered - main table
 * usgeocode - table with latitude and longitude codes
@@ -67,13 +69,21 @@ Questions answered by the sample queries were:
 This is located in the file Sample Queries.sql
 
 ## Machine Learning Models:
+
+#### Removing Outliers:
+To improve the fit of the machine learning models, rows that contain extreme outliers need to be filtered out. Removing these reduced the dataset to 935,674 rows from 1,360,347 rows. The downside to filtering out these outliers is that the resulting machine learning models are less robust than they would be if the outliers had been filtered out. However, due to time constraints, removing the outliers resulted in a dataset that is more agreeable to train into an accurate machine learning model. 
+
+#### Multivariate Linear Regression
+The first model we used to fit our data was multivariate linear regression. “Linear regression analysis is a set of statistical procedures designed to examine relationships between one or more independent variables (IV) and one dependent (i.e., outcome) variable (DV)”(Randolph & Myers, 2013). For our linear regression model, we used sklearn's linear_model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. 
+
+This model produced an R-squared value of approximately 0.166, which is a bad fit. This make sense, however, as it is difficult for a complex dataset with several features to be fit linearly. 
+
 #### Random Forest Regression
 “A random forest is a meta estimator that fits a number of decision tree regressors on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting”(Sklearn.ensemble.randomforestregressor, n.d.).
 
 For our project, we trained a Random Forest Regression model to predict house prices based on the number of bedrooms, number of bathrooms, lot size, zip code, and house size. From several trials, we determined that ... estimators produced the best results for the dataset that was given to the model. It resulted in and R-squared value of ... and an Out-of-Bag score of ....
 
-#### Multivariate Linear Regression
-“Linear regression analysis is a set of statistical procedures designed to examine relationships between one or more independent variables (IV) and one dependent (i.e., outcome) variable (DV)”(Randolph & Myers, 2013).
+#### Extreme Gradient Boosting (XGBRegressor)
 
 #### Support Vector Regression
 “Support Vector Machine (SVM) is a supervised machine learning algorithm used for… regression. The main objective of the SVM algorithm is to find the optimal hyperplane in an N-dimensional space that can separate the data points in different classes in the feature space”(Support Vector Machine (SVM) algorithm, 2023).
@@ -82,4 +92,5 @@ For our project, we trained a Random Forest Regression model to predict house pr
 ## To Run:
 
 ## Resources:
+- Randolph, K. A., & Myers, L. L. (2013). Bivariate and Multivariate Linear Regression Analysis. Basic Statistics in Multivariate Analysis, 109–132. https://doi.org/10.1093/acprof:oso/9780199764044.003.0005
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data

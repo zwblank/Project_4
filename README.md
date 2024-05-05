@@ -70,6 +70,9 @@ This is located in the file Sample Queries.sql
 
 ## Machine Learning Models:
 
+#### Removing Outliers:
+To improve the fit of the machine learning models, rows that contain extreme outliers need to be filtered out. Removing these reduced the dataset to 935,674 rows from 1,360,347 rows. The downside to filtering out these outliers is that the resulting machine learning models are less robust than they would be if the outliers had been filtered out. However, due to time constraints, removing the outliers resulted in a dataset that is more agreeable to train into an accurate machine learning model. 
+
 #### Multivariate Linear Regression
 The first model we used to fit our data was multivariate linear regression. “Linear regression analysis is a set of statistical procedures designed to examine relationships between one or more independent variables (IV) and one dependent (i.e., outcome) variable (DV)”(Randolph & Myers, 2013). For our linear regression model, we used sklearn's linear_model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. 
 

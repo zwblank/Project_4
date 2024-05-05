@@ -69,13 +69,18 @@ Questions answered by the sample queries were:
 This is located in the file Sample Queries.sql
 
 ## Machine Learning Models:
+
+#### Multivariate Linear Regression
+The first model we used to fit our data was multivariate linear regression. “Linear regression analysis is a set of statistical procedures designed to examine relationships between one or more independent variables (IV) and one dependent (i.e., outcome) variable (DV)”(Randolph & Myers, 2013). For our linear regression model, we used sklearn's linear_model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. 
+
+This model produced an R-squared value of approximately 0.166, which is a bad fit. This make sense, however, as it is difficult for a complex dataset with several features to be fit linearly. 
+
 #### Random Forest Regression
 “A random forest is a meta estimator that fits a number of decision tree regressors on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting”(Sklearn.ensemble.randomforestregressor, n.d.).
 
 For our project, we trained a Random Forest Regression model to predict house prices based on the number of bedrooms, number of bathrooms, lot size, zip code, and house size. From several trials, we determined that ... estimators produced the best results for the dataset that was given to the model. It resulted in and R-squared value of ... and an Out-of-Bag score of ....
 
-#### Multivariate Linear Regression
-“Linear regression analysis is a set of statistical procedures designed to examine relationships between one or more independent variables (IV) and one dependent (i.e., outcome) variable (DV)”(Randolph & Myers, 2013).
+#### Extreme Gradient Boosting (XGBRegressor)
 
 #### Support Vector Regression
 “Support Vector Machine (SVM) is a supervised machine learning algorithm used for… regression. The main objective of the SVM algorithm is to find the optimal hyperplane in an N-dimensional space that can separate the data points in different classes in the feature space”(Support Vector Machine (SVM) algorithm, 2023).
@@ -84,4 +89,5 @@ For our project, we trained a Random Forest Regression model to predict house pr
 ## To Run:
 
 ## Resources:
+- Randolph, K. A., & Myers, L. L. (2013). Bivariate and Multivariate Linear Regression Analysis. Basic Statistics in Multivariate Analysis, 109–132. https://doi.org/10.1093/acprof:oso/9780199764044.003.0005
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data

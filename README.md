@@ -145,7 +145,12 @@ Since extreme outliers were filtered out from our dataset, the resulting models 
 Future work to improve this model or similar models could include a feature that details the property type (single family home, duplex, apartment building, etc.).
 
 ## Resources:
+- An introduction to XGBoost regression: https://www.kaggle.com/code/carlmcbrideellis/an-introduction-to-xgboost-regression
+- Detect and Remove the Outliers using Python: https://www.geeksforgeeks.org/detect-and-remove-the-outliers-using-python/
 - Feature importance for random forest: https://mljar.com/blog/feature-importance-in-random-forest/
+- House Price Prediction: https://github.com/MYoussef885/House_Price_Prediction/blob/main/House_Price_Prediction.ipynb
+- House Price Prediction using Machine Learning in Python: https://www.geeksforgeeks.org/house-price-prediction-using-machine-learning-in-python/
+- Housing Price Prediction - (Best ML Algorithms): https://www.kaggle.com/code/yasserh/housing-price-prediction-best-ml-algorithms
 - Randolph, K. A., & Myers, L. L. (2013). Bivariate and Multivariate Linear Regression Analysis. Basic Statistics in Multivariate Analysis, 109–132. https://doi.org/10.1093/acprof:oso/9780199764044.003.0005
 - Sklearn.ensemble.randomforestregressor. scikit. (n.d.). https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html
 - Subasi, A., Panigrahi, S. S., Patil, B. S., Canbaz, M. A., & Klén, R. (2022). Advanced pattern recognition tools for disease diagnosis. 5G IoT and Edge Computing for Smart Healthcare, 195–229. https://doi.org/10.1016/b978-0-323-90548-0.00011-5
@@ -154,5 +159,6 @@ Future work to improve this model or similar models could include a feature that
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
 - XGBoost documentation: https://xgboost.readthedocs.io/en/stable/python/python_api.html
 - XGBoost for Regression: https://machinelearningmastery.com/xgboost-for-regression/
+- XGBoost Parameters: https://xgboost.readthedocs.io/en/stable/parameter.html
 
 

@@ -81,12 +81,31 @@ The first model we used to fit our data was multivariate linear regression. “L
 This model produced an R-squared value of approximately 0.2991, which is a poor fit. This make sense, however, as it is difficult for a complex dataset with several features to be fit linearly. The upside to this algorithm is that it runs fairly quickly and doesn't consume a lot of resources. 
 
 #### Random Forest Regression
-“A random forest is a meta estimator that fits a number of decision tree regressors on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting”(Sklearn.ensemble.randomforestregressor, n.d.).
+The second model we used to fit our data was Random Forest Regression. “A random forest is a meta estimator that fits a number of decision tree regressors on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting”(Sklearn.ensemble.randomforestregressor, n.d.). For our random forest model, we used sklearn's random forest model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. This model was also tested with the dataset containing the outliers and the dataset where the extreme outliers had been filtered out. 
 
-For our project, we trained a Random Forest Regression model to predict house prices based on the number of bedrooms, number of bathrooms, lot size, zip code, and house size. From several trials, we determined that ... estimators produced the best results for the dataset that was given to the model. It resulted in and R-squared value of ... and an Out-of-Bag score of ....
+Before removing the extreme outliers, the model was tested with the entire dataset, which produced R-squared values between 0.51 and 0.86 and very high mean squared error (>100,000,000,000) for the testing and training data.
+
+After removing the extreme outliers, the initial trial used:
+- 50 estimators
+- training set comprised of 90% of the dataset
+The results were:
+- R-squared of ~0.978
+- Mean squared error of 1,150,758,901.8
+
+The model parameters were then adjusted in multiple trials (documented in the Jupyter notebook).
+
+The best results were from a trial that used:
+- 50 estimators
+- training set comprised of 90% of the dataset
+The results were:
+- R-squared of ~0.978
+- Mean squared error of 1,150,758,901.8
+
 
 #### Extreme Gradient Boosting (XGBRegressor)
-We also used an XGBRegressor to fit our data. “XGBoost stands for Extreme Gradient Boosting, which applies a Gradient Boosting technique based on decision trees. It constructs short, basic decision trees iteratively”(Subasi et al., 2022). Before removing the extreme outliers, the model was tested with the entire dataset, which produced R-squared values between 0.5 and 0.75 and mean squared values between 100,000 and 200,000 for the testing and training data.
+We also used an XGBRegressor to fit our data. “XGBoost stands for Extreme Gradient Boosting, which applies a Gradient Boosting technique based on decision trees. It constructs short, basic decision trees iteratively”(Subasi et al., 2022). For our XGBRegressor model, we used xgboots's XGBRegressor model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. This model was also tested with the dataset containing the outliers and the dataset where the extreme outliers had been filtered out.
+
+Before removing the extreme outliers, the model was tested with the entire dataset, which produced R-squared values between 0.5 and 0.75 and mean absolute values between 100,000 and 200,000 for the testing and training data.
 
 After removing the extreme outliers, the initial trial used:
 - 50 estimators
@@ -110,9 +129,17 @@ The results were:
 
 The benefits of using this model were that it ran fairly quickly; most trials took less than 5 minutes to complete. This model also has a lot of parameters that can be fine tuned.
 
+The code to run this model is available in the Jupyter notebook titled, 'xgbregressor.ipynb'.
+
 ## Results
+Both the Random Forest model and the XGBRegressor model produced R-squared values greater than 0.8 when the parameters were tuned. 
+
+Linear Regression had the worst performance overall, as the R-squared value was only ~0.3.
 
 ## Limitations
+Since extreme outliers were filtered out from our dataset, the resulting models are less robust. The models will not be able to accurately predict the price of very large and/or expensive homes. The only properties that could have their value predicted using this model would be smaller homes (less than 4,000 sqft) with less than 6 beds, less than 6 baths, and on a lot smaller than 1 acre.
+
+Future work to improve this model or similar models could include a feature that details the property type (single family home, duplex, apartment building, etc.).
 
 ## Resources:
 - Feature importance for random forest: https://mljar.com/blog/feature-importance-in-random-forest/
@@ -122,5 +149,7 @@ The benefits of using this model were that it ran fairly quickly; most trials to
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
 - Using xgboost with sklearn: https://xgboost.readthedocs.io/en/stable/python/examples/sklearn_parallel.html#sphx-glr-python-examples-sklearn-parallel-py
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
+- XGBoost documentation: https://xgboost.readthedocs.io/en/stable/python/python_api.html
+- XGBoost for Regression: https://machinelearningmastery.com/xgboost-for-regression/
 
 

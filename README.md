@@ -88,7 +88,29 @@ For our project, we trained a Random Forest Regression model to predict house pr
 #### Extreme Gradient Boosting (XGBRegressor)
 We also used an XGBRegressor to fit our data. “XGBoost stands for Extreme Gradient Boosting, which applies a Gradient Boosting technique based on decision trees. It constructs short, basic decision trees iteratively”(Subasi et al., 2022). Before removing the extreme outliers, the model was tested with the entire dataset, which produced R-squared values between 0.5 and 0.75 and mean squared values between 100,000 and 200,000 for the testing and training data.
 
-After removing the extreme outliers, the initial trial
+After removing the extreme outliers, the initial trial used:
+- 50 estimators
+- max tree depth of 6
+- learning rate of 0.1
+- training set comprised of 60% of the dataset
+The results were:
+- R-squared of ~0.6907
+- Mean absolute error of ~90,716
+
+The model parameters were then adjusted in multiple trials (documented in the Jupyter notebook).
+
+The best results were from a trial that used:
+- 5000 estimators
+- max tree depth of 8
+- learning rate of 0.1
+- training set comprised of 60% of the dataset
+The results were:
+- R-squared of ~0.8899
+- Mean absolute error of: ~53,221
+
+The benefits of using this model were that it ran fairly quickly; most trials took less than 5 minutes to complete. This model also has a lot of parameters that can be fine tuned.
+
+## Results
 
 ## Limitations
 

@@ -22,13 +22,13 @@ The original dataset consisted of 2,226,382 rows of data with 12 columns.  This 
   * house_size - squared footage
   * prev_sold_date - removed from dataset
 
-To reduce the size of the dataset, it was decided to remove the columns:[brokered by, street, prev_sold_date], because they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed (Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii) as well as any rows with null values. This reduced the dataset to 1,360,347 rows and 10 columns. This eliminated all rows with the status of 'ready_to_build'.
+To reduce the size of the dataset, it was decided to remove the columns:[brokered by, street], because they were not featured data. To further reduce the size of the dataset, noncontiguous states were removed (Guam, Virgin Islands, Puerto Rico, New Brunswick, Alaska and Hawaii) as well as any rows with null values. This reduced the dataset to 1,360,347 rows and 10 columns. This eliminated all rows with the status of 'ready_to_build'.
 
-In the dataset, two views were created. 
-
-Part of the data viewing and cleanup was performed using Pandas. This included reading the raw data zipped csv file.  The file is too large to upload to github and too large to open in Excel. Dataframes were made from subsets of the raw data. 
+Data processing was performed using Pandas. This included reading the raw data zipped csv file.  The file is too large to upload to github and too large to open in Excel. Several dataframes were created to be used in various data exploration. 
 
 SQLite was used to create a connection for accessing the data to be used in machine language modeling.  
+
+A few charts were created using matplotlib.
 
 ## Exploratory Data Analysis:
 The purpose is to explore the data sets and find hidden patterns and relationships of the current real estate market. To view the full analysis and graphics, please follow this link: https://public.tableau.com/app/profile/zac.blankenship/viz/Project4-ExploratoryDataAnalysis/Project4-ExploratoryDataAnalysis?publish=yes
@@ -40,7 +40,7 @@ The purpose is to explore the data sets and find hidden patterns and relationshi
 * Does average price have a strong relationship to avearge number of baths, average number of bedrooms, or average house size? With all three dimensions, there does appear to be a relationship however it's a fairly weak one. The avearge r-squared value was around 0.2731 which implies these variables don't explain much when it comes to the house price. However, it's very possible that linear regression is not the best model to use given these circumstances. It's well known that house size, more bedrooms, and more bathrooms typically lead to a higher price on a house so this data should be taken cautiously.
 
 ## Postgresql:
-Due to structure of the data, Postgresql was the choice in creating a database.
+Due to organized structure of the data, Postgresql was the choice in creating a database.
 
 The realestate_db database contains 3 tables:
 * realtor_filtered - main table
@@ -53,7 +53,7 @@ Two views were made:
 * realtor_region_view - includes the main table with the region and division fields added.  This is the table to use eliminating the need to do joins each time.
 * realtor_region_extended_view = includes everything in the first view but added the latitude and longitude columns. This is basically for anyone needing the latitude and longitude for mapping purposes
 
-The file used for this operation is under creation of tables.sql
+The table schema is included in tables.sql
 
 ## Queries:
 Queries created to validate that data was populated in each table and visable with the views are listed at the beginning of the queries file.
@@ -95,7 +95,11 @@ After removing the extreme outliers, the initial trial
 ## Resources:
 - Feature importance for random forest: https://mljar.com/blog/feature-importance-in-random-forest/
 - Randolph, K. A., & Myers, L. L. (2013). Bivariate and Multivariate Linear Regression Analysis. Basic Statistics in Multivariate Analysis, 109–132. https://doi.org/10.1093/acprof:oso/9780199764044.003.0005
+<<<<<<< HEAD
 - Sklearn.ensemble.randomforestregressor. scikit. (n.d.). https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html
 - Subasi, A., Panigrahi, S. S., Patil, B. S., Canbaz, M. A., & Klén, R. (2022). Advanced pattern recognition tools for disease diagnosis. 5G IoT and Edge Computing for Smart Healthcare, 195–229. https://doi.org/10.1016/b978-0-323-90548-0.00011-5
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
 - Using xgboost with sklearn: https://xgboost.readthedocs.io/en/stable/python/examples/sklearn_parallel.html#sphx-glr-python-examples-sklearn-parallel-py
+=======
+- USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
+>>>>>>> f0f866e4f69c781f133846fe714ad45f93759a30

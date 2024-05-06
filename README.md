@@ -78,7 +78,38 @@ The code used to determine the extreme outliers is the file titled 'finding_outl
 #### Multivariate Linear Regression
 The first model we used to fit our data was multivariate linear regression. “Linear regression analysis is a set of statistical procedures designed to examine relationships between one or more independent variables (IV) and one dependent (i.e., outcome) variable (DV)”(Randolph & Myers, 2013). For our linear regression model, we used sklearn's linear_model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. 
 
-This model produced an R-squared value of approximately 0.2991, which is a poor fit. This make sense, however, as it is difficult for a complex dataset with several features to be fit linearly. The upside to this algorithm is that it runs fairly quickly and doesn't consume a lot of resources. 
+This model produced an R-squared value of approximately 0.298 on the training data and 0.301 on the testing data (split of 60% training, 40% testing), which is a poor fit. This make sense, however, as it is difficult for a complex dataset with several features to be fit linearly. The upside to this algorithm is that it runs fairly quickly and doesn't consume a lot of resources. 
+
+#### Extreme Gradient Boosting (XGBRegressor)
+We also used an XGBRegressor to fit our data. “XGBoost stands for Extreme Gradient Boosting, which applies a Gradient Boosting technique based on decision trees. It constructs short, basic decision trees iteratively”(Subasi et al., 2022). For our XGBRegressor model, we used xgboots's XGBRegressor model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. This model was also tested with the dataset containing the outliers and the dataset where the extreme outliers had been filtered out.
+
+Before removing the extreme outliers, the model was tested with the entire dataset, which produced R-squared values between 0.5 and 0.75 and mean absolute values between 100,000 and 200,000 for the testing and training data.
+
+After removing the extreme outliers, the initial trial used:
+- 50 estimators
+- max tree depth of 6
+- learning rate of 0.1
+- training set comprised of 60% of the dataset
+The results were:
+- R-squared of ~0.6907 on the training data
+- R-squared of ~0.6895 on the testing data
+- Mean absolute error of ~90,716 on the training data
+
+The model parameters were then adjusted in multiple trials (documented in the Jupyter notebook).
+
+The best results were from a trial that used:
+- 5000 estimators
+- max tree depth of 8
+- learning rate of 0.1
+- training set comprised of 60% of the dataset
+The results were:
+- R-squared of ~0.8899 on the training data
+- R-squared of ~0.7355 on the testing data
+- Mean absolute error of: ~53,221 on the training data
+
+The benefits of using this model were that it ran fairly quickly; most trials took less than 5 minutes to complete. This model also has a lot of parameters that can be fine tuned.
+
+The code to run this model is available in the Jupyter notebook titled, 'xgbregressor.ipynb'.
 
 #### Random Forest Regression
 The second model we used to fit our data was Random Forest Regression. “A random forest is a meta estimator that fits a number of decision tree regressors on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting”(Sklearn.ensemble.randomforestregressor, n.d.). For our random forest model, we used sklearn's random forest model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. This model was also tested with the dataset containing the outliers and the dataset where the extreme outliers had been filtered out. 
@@ -100,36 +131,6 @@ The best results were from a trial that used:
 The results were:
 - R-squared of ~0.978
 - Mean squared error of 1,150,758,901.8
-
-
-#### Extreme Gradient Boosting (XGBRegressor)
-We also used an XGBRegressor to fit our data. “XGBoost stands for Extreme Gradient Boosting, which applies a Gradient Boosting technique based on decision trees. It constructs short, basic decision trees iteratively”(Subasi et al., 2022). For our XGBRegressor model, we used xgboots's XGBRegressor model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. This model was also tested with the dataset containing the outliers and the dataset where the extreme outliers had been filtered out.
-
-Before removing the extreme outliers, the model was tested with the entire dataset, which produced R-squared values between 0.5 and 0.75 and mean absolute values between 100,000 and 200,000 for the testing and training data.
-
-After removing the extreme outliers, the initial trial used:
-- 50 estimators
-- max tree depth of 6
-- learning rate of 0.1
-- training set comprised of 60% of the dataset
-The results were:
-- R-squared of ~0.6907
-- Mean absolute error of ~90,716
-
-The model parameters were then adjusted in multiple trials (documented in the Jupyter notebook).
-
-The best results were from a trial that used:
-- 5000 estimators
-- max tree depth of 8
-- learning rate of 0.1
-- training set comprised of 60% of the dataset
-The results were:
-- R-squared of ~0.8899
-- Mean absolute error of: ~53,221
-
-The benefits of using this model were that it ran fairly quickly; most trials took less than 5 minutes to complete. This model also has a lot of parameters that can be fine tuned.
-
-The code to run this model is available in the Jupyter notebook titled, 'xgbregressor.ipynb'.
 
 ## Results
 Both the Random Forest model and the XGBRegressor model produced R-squared values greater than 0.8 when the parameters were tuned. 

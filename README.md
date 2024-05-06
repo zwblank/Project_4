@@ -73,10 +73,12 @@ This is located in the file Sample Queries.sql
 #### Removing Outliers:
 To improve the fit of the machine learning models, rows that contain extreme outliers need to be filtered out. Removing these reduced the dataset to 935,674 rows from 1,360,347 rows. The downside to filtering out these outliers is that the resulting machine learning models are less robust than they would be if the outliers had been filtered out. However, due to time constraints, removing the outliers resulted in a dataset that is more agreeable to train into an accurate machine learning model. 
 
+The code used to determine the extreme outliers is the file titled 'finding_outliers.ipynb'.
+
 #### Multivariate Linear Regression
 The first model we used to fit our data was multivariate linear regression. “Linear regression analysis is a set of statistical procedures designed to examine relationships between one or more independent variables (IV) and one dependent (i.e., outcome) variable (DV)”(Randolph & Myers, 2013). For our linear regression model, we used sklearn's linear_model. The price column of the dataset was used as the target and the number of bedrooms, number of bathrooms, lot size (in acres), zip code, and house size (in square feet) were used as the features. 
 
-This model produced an R-squared value of approximately 0.166, which is a bad fit. This make sense, however, as it is difficult for a complex dataset with several features to be fit linearly. 
+This model produced an R-squared value of approximately 0.2991, which is a poor fit. This make sense, however, as it is difficult for a complex dataset with several features to be fit linearly. The upside to this algorithm is that it runs fairly quickly and doesn't consume a lot of resources. 
 
 #### Random Forest Regression
 “A random forest is a meta estimator that fits a number of decision tree regressors on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting”(Sklearn.ensemble.randomforestregressor, n.d.).
@@ -84,13 +86,18 @@ This model produced an R-squared value of approximately 0.166, which is a bad fi
 For our project, we trained a Random Forest Regression model to predict house prices based on the number of bedrooms, number of bathrooms, lot size, zip code, and house size. From several trials, we determined that ... estimators produced the best results for the dataset that was given to the model. It resulted in and R-squared value of ... and an Out-of-Bag score of ....
 
 #### Extreme Gradient Boosting (XGBRegressor)
+We also used an XGBRegressor to fit our data. “XGBoost stands for Extreme Gradient Boosting, which applies a Gradient Boosting technique based on decision trees. It constructs short, basic decision trees iteratively”(Subasi et al., 2022). Before removing the extreme outliers, the model was tested with the entire dataset, which produced R-squared values between 0.5 and 0.75 and mean squared values between 100,000 and 200,000 for the testing and training data.
 
-#### Support Vector Regression
-“Support Vector Machine (SVM) is a supervised machine learning algorithm used for… regression. The main objective of the SVM algorithm is to find the optimal hyperplane in an N-dimensional space that can separate the data points in different classes in the feature space”(Support Vector Machine (SVM) algorithm, 2023).
+After removing the extreme outliers, the initial trial
 
-
-## To Run:
+## Limitations
 
 ## Resources:
+- Feature importance for random forest: https://mljar.com/blog/feature-importance-in-random-forest/
 - Randolph, K. A., & Myers, L. L. (2013). Bivariate and Multivariate Linear Regression Analysis. Basic Statistics in Multivariate Analysis, 109–132. https://doi.org/10.1093/acprof:oso/9780199764044.003.0005
+- Sklearn.ensemble.randomforestregressor. scikit. (n.d.). https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html
+- Subasi, A., Panigrahi, S. S., Patil, B. S., Canbaz, M. A., & Klén, R. (2022). Advanced pattern recognition tools for disease diagnosis. 5G IoT and Edge Computing for Smart Healthcare, 195–229. https://doi.org/10.1016/b978-0-323-90548-0.00011-5
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
+- Using xgboost with sklearn: https://xgboost.readthedocs.io/en/stable/python/examples/sklearn_parallel.html#sphx-glr-python-examples-sklearn-parallel-py
+- USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
+

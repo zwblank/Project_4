@@ -95,11 +95,10 @@ After removing the extreme outliers, the initial trial
 ## Resources:
 - Feature importance for random forest: https://mljar.com/blog/feature-importance-in-random-forest/
 - Randolph, K. A., & Myers, L. L. (2013). Bivariate and Multivariate Linear Regression Analysis. Basic Statistics in Multivariate Analysis, 109–132. https://doi.org/10.1093/acprof:oso/9780199764044.003.0005
-<<<<<<< HEAD
 - Sklearn.ensemble.randomforestregressor. scikit. (n.d.). https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html
 - Subasi, A., Panigrahi, S. S., Patil, B. S., Canbaz, M. A., & Klén, R. (2022). Advanced pattern recognition tools for disease diagnosis. 5G IoT and Edge Computing for Smart Healthcare, 195–229. https://doi.org/10.1016/b978-0-323-90548-0.00011-5
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
 - Using xgboost with sklearn: https://xgboost.readthedocs.io/en/stable/python/examples/sklearn_parallel.html#sphx-glr-python-examples-sklearn-parallel-py
-=======
 - USA Real Estate Dataset: https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset/data
->>>>>>> f0f866e4f69c781f133846fe714ad45f93759a30
+
+
